@@ -375,6 +375,7 @@
                                             <li><a href="{{ url('/') }}">Home</a></li>
                                             <li><a href="{{ route('about.index') }}">About</a></li>
                                             <li><a href="{{ route('services.index') }}">Services</a></li>
+                                            <li><a href="{{ route('page.blog') }}">Blog</a></li>
                                             {{-- <li><a href="{{ route('portfolio.index') }}">Portfolio</a></li> --}}
                                             {{-- <li>
                                                 <a href="#">Page</a>
