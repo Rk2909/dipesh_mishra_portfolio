@@ -378,16 +378,14 @@
                                             <li><a href="{{ route('services.index') }}">Services</a></li>
                                             <li><a href="{{ route('page.blog') }}">Blog</a></li>
                                             {{-- <li><a href="{{ route('portfolio.index') }}">Portfolio</a></li> --}}
-                                            {{-- <li>
+                                            <li>
                                                 <a href="#">Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="{{ route('page.blog') }}">Blog</a></li>
-                                                    <li><a href="{{ route('page.blogDetails') }}">Blog Details</a></li>
-                                                    <li><a href="{{ route('page.element') }}">Element</a></li>
-                                                    <li><a href="{{ route('page.portfolioDetails') }}">Portfolio
-                                                            Details</a></li>
+                                                    {{-- <li><a href="{{ route('page.blogDetails') }}">Blog Details</a></li> --}}
+                                                    <li><a href="{{ route('page.element') }}">Gallery</a></li>
                                                 </ul>
-                                            </li> --}}
+                                            </li>
                                             {{-- <li><a href="{{ route('contact.index') }}">Contact</a></li> --}}
                                         </ul>
                                     </nav>

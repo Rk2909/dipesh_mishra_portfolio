@@ -13,7 +13,7 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        $contacts = ContactModel::get();
+        $contacts = ContactModel::latest()->get();
         return view('admin.contact.index',compact('contacts'));
     }
 

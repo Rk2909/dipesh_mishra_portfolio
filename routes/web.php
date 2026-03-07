@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\PhotosController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\User\AboutUsController;
@@ -44,22 +46,38 @@ Route::controller(AdminController::class)->prefix('admin')->name('admin.')->grou
     Route::get('/index', 'index')->name('index');
 });
 // ------------------ admin blogs routes -----------------------------------
-Route::controller(BlogController::class)->prefix('blog')->name('blog.')->group(function () {
+Route::middleware(['auth'])->controller(BlogController::class)->prefix('blog')->name('blog.')->group(function () {
     Route::get('/index', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
     Route::post('/store', 'store')->name('store');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::post('/update/{id}', 'update')->name('update');
+    Route::post('/delete/{id}', 'destroy')->name('destroy');
+
 });
 // ------------------ admin contactsUs routes -----------------------------------
-Route::controller(ContactUsController::class)->prefix('contact')->name('contact.')->group(function () {
+Route::middleware(['auth'])->controller(ContactUsController::class)->prefix('contact')->name('contact.')->group(function () {
     Route::get('/index','index')->name('index.admin');
     Route::post('/store','store')->name('store');
 });
-// ------------------ admin photos routes -----------------------------------
-Route::controller(PhotosController::class)->prefix('photos')->name('photos.')->group(function () {
-    
+// ------------------ admin gallery routes -----------------------------------
+Route::controller(GalleryController::class)->prefix('gallery')->name('gallery.')->group(function () {
+    Route::get('/index','index')->name('index');
+    Route::get('/create','create')->name('create');
+    Route::post('/store','store')->name('store');
+    Route::get('/edit/{id}','edit')->name('edit');
+    Route::post('/update/{id}','update')->name('update');
+    Route::post('/delete/{id}','destroy')->name('destroy');
 });
 // ------------------ admin settings routes -----------------------------------
-Route::controller(SettingsController::class)->prefix('settings')->name('settings.')->group(function () {
+Route::middleware(['auth'])->controller(SettingsController::class)->prefix('settings')->name('settings.')->group(function () {
    Route::get('/create','create')->name('create'); 
    Route::post('/store','store')->name('store'); 
+});
+Route::controller(AuthController::class)->prefix('auth')->name('auth.')->group(function(){
+    Route::get('/login','login')->name('login');
+    Route::get('/register','register')->name('register');
+    Route::post('/register/store','registerStore')->name('register.store');
+    Route::post('/login/check','loginCheck')->name('login.check');
+    Route::get('/logout','logout')->name('logout');
 });

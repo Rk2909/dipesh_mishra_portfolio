@@ -14,7 +14,7 @@ class PageController extends Controller
         return view('user.page.blogDetails');
     }
     public function element(){
-        return view('user.page.element');
+        return view('user.page.gallery');
     }
     public function portfolioDetails(){
         return view('user.page.portfolioDetails');
