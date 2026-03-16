@@ -319,6 +319,25 @@
                     <span>Contact Us</span>
                 </a>
             </li><!-- End Contact Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('admin.video.index') }}">
+                    <i class="bi bi-envelope"></i>
+                    <span>Video</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('admin.slider.index') }}">
+                    <i class="bi bi-file-image"></i>
+                    <span>Slider</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('admin.about.index') }}">
+                    <i class="bi bi-file-image"></i>
+                    <span>About</span>
+                </a>
+            </li>
+            <!-- End Contact Page Nav -->
 
 
         </ul>

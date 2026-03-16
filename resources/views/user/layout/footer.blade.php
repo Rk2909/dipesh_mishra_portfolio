@@ -1,70 +1,59 @@
+@php
+    $setting = \App\Models\SettingsModel::first();
+@endphp
+
 <footer>
-    <!-- Contact Section -->
-    <section class="services-area services-padding bg-dark text-white">
-        <div class="container text-center">
-            <h2 style="color: white;"><a href="#">dipeshmishra.in</a></h2>
-            <p style="color: white;">
-                Entrepreneur | Youth Institution Builder | Empowerment Leader <br>
-                Building India’s Youth Economy <br>
-            </p>
-        </div>
-    </section>
     <!-- Footer Start-->
     <div class="footer-area">
         <div class="container">
             <div class="footer-top footer-padding">
                 <div class="row justify-content-center">
-                    <div class="col-lg-6" style="display: flex;justify-content:space-between;">
-                        <div class="footer-top-cap text-left">
-                            <ul>
-                                <li class="m-3">
-                                    <a href="{{ '/' }}">home</a>
-                                </li>
-                                <li class="m-3">
-                                    <a href="{{ route('about.index') }}">About</a>
-                                </li>
+                    <div class="col-lg-6">
+                        <div class="footer-top-cap text-center">
+                            {{-- <img src="{{ asset('user/assets/img/logo/logo2_footer.png') }}" alt=""> --}}
+                            <span><a href="{{ $setting->website ?? '' }}">dipeshmishra.in</a></span>
+                            <p>Entrepreneur | Youth Institution Builder | Empowerment Leader</p>
+                            <p>Building India’s Youth Economy</p>
+                        </div>
+                        <div class="footer-social text-center my-1" style="float:none">
+                            {{-- <a>Stay Connected</a> --}}
+                            <a href="{{ $setting->twitter ?? '' }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $setting->facebook ?? '' }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $setting->website ?? ''}}" target="_blank"><i class="fas fa-globe"></i></a>
+                            <a href="{{ $setting->instagram ?? '' }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="{{ $setting->youtube ?? ''}}" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
 
-                            </ul>
-                        </div>
-                        <div class="footer-top-cap text-right">
-                            <ul>
-                                <li class="m-3">
-                                    <a href="{{ route('services.index') }}">Services</a>
-                                </li>
-                                <li class="m-3">
-                                    <a href="{{ route('contact.index') }}">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <div class="row d-flex justify-content-between align-items-center">
-                    <div class="col-xl-9 col-lg-8">
-                        <div class="footer-copy-right">
-                            <p style="color: white;">
+                    <div class="col-xl-12 col-lg-12">
+                        <div class="footer-copy-right text-center">
+                            <p class="text-white">
                                 Copyright &copy;
                                 <script>
                                     document.write(new Date().getFullYear());
                                 </script>
-                                All rights reserved | This template is made
-                                by <a href="https://colorlib.com" target="_blank">Rays It & Design World</a>
+                                iYouth Pvt. Ltd | All rights reserved | Developed
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                by <a href="https://www.raysitworld.com" target="_blank">Rays It & Design World</a>
                             </p>
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-lg-4">
+                    {{-- <div class="col-xl-3 col-lg-4">
                         <!-- Footer Social -->
                         <div class="footer-social f-right">
-                            <a class="text-white">Stay Connected</a>
+                            <a>Stay Connected</a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fas fa-globe"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
@@ -98,7 +87,7 @@
 <script src="{{ asset('user/assets/js/slick.min.js') }}"></script>
 
 <!-- Animation -->
-{{-- <script src="{{ asset('user/assets/js/wow.min.js') }}"></script> --}}
+<script src="{{ asset('user/assets/js/wow.min.js') }}"></script>
 <script src="{{ asset('user/assets/js/animated.headline.js') }}"></script>
 <script src="{{ asset('user/assets/js/jquery.magnific-popup.js') }}"></script>
 
@@ -128,10 +117,11 @@
 </script>
 {{-- ------------ AOS JS End ------------------------ --}}
 <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
+<a href="https://wa.me/917987852989" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
 {{-- -----------typing effect -------------- --}}
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
 
@@ -142,6 +132,7 @@
             "Founder – Chhattisgarh Youth Federation",
             "Founder & President – Chhattisgarh Adventure Sports Association"
         ];
+
 
         const speed = 70;
         const eraseSpeed = 40;
@@ -178,12 +169,16 @@
             type();
         }
 
+
         // Call function for multiple IDs
         startTypewriter("typewriter");
-        startTypewriter("typewriter1");
+
 
     });
 </script>
+
+
+
 </body>
 
 </html>

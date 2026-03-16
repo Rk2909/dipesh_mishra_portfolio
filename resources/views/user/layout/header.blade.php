@@ -1,3 +1,6 @@
+@php
+    $setting = \App\Models\SettingsModel::first();
+@endphp
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -23,13 +26,11 @@
     <link rel="stylesheet" href="{{ asset('user/assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('user/assets/css/style.css') }}">
     {{-- ------------- font ------------------ --}}
-    {{-- font awesome --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
+    {{-- ----------------------------------------------------------- --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -39,31 +40,12 @@
     {{-- ----- AOS Link --------- --}}
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     {{-- ------ AOS End -------- --}}
+
     <style>
-        /* ------------ center card ------------- */
-        .row.center-card {
-            justify-content: center;
-            align-items: stretch;
-        }
 
         #typewriter::after {
             content: "|";
             animation: blink 1s infinite;
-        }
-
-        #typewriter {
-            font-size: 25px;
-            max-width: 100%;
-            width: 100%;
-            white-space: normal;
-            /* Allows wrapping */
-        }
-
-        @media (min-width: 992px) {
-            #typewriter {
-                white-space: nowrap;
-                /* Single line */
-            }
         }
 
         @keyframes blink {
@@ -82,6 +64,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
+
         }
 
         h1,
@@ -95,9 +78,9 @@
         }
 
         @media (max-width: 767px) {
-            .btn {
+            /* .btn {
                 max-width: 100%;
-            }
+            } */
 
             .hero__btn a,
             .wantToWork-area .btn,
@@ -151,10 +134,10 @@
                 margin-right: 0;
             }
 
-            .container {
+            /* .container {
                 padding-left: 15px;
                 padding-right: 15px;
-            }
+            } */
 
             .ml-15 {
                 margin-left: 0 !important;
@@ -176,10 +159,6 @@
 
         }
 
-        html,
-        body {
-            overflow-x: hidden;
-        }
 
         /* --------------- ROAD MAP START  --------------- */
         /* Roadmap Section */
@@ -256,10 +235,20 @@
         }
 
         /* ---- for mobile --- */
+        /* @media(max-width: 575px){
+             .roadmap-item.right::before {
+                left: 0;
+            }
+
+         } */
         @media (max-width: 768px) {
 
             .roadmap::before {
                 left: 20px;
+            }
+
+            .roadmap-item.right::before {
+                left: 9px;
             }
 
             .roadmap-item {
@@ -325,6 +314,13 @@
             }
         }
 
+        @media (max-width:575px) {
+            .whatsapp-float {
+                right: 15px;
+            }
+
+        }
+
         /* ----------- floating whatsapp end ------------ */
         /* ----------- contact form ------------------- */
         .contact-wrapper input,
@@ -339,13 +335,56 @@
             font-size: 15px;
         }
 
-        
+
         .contact-wrapper input:focus,
         .contact-wrapper textarea:focus {
             border-color: #007bff;
             box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
         }
+
+        /* icons social media */
+        .social-icons {
+            position: fixed;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: 999;
+        }
+
+        .social-icons a {
+            display: block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            margin: 5px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .facebook {
+            background: #3b5998;
+        }
+
+        .instagram {
+            background: #E1306C;
+        }
+
+        .twitter {
+            background: #1DA1F2;
+        }
+
+        .youtube {
+            background: #ed3b52;
+        }
+
+        .social-icons a:hover {
+            width: 55px;
+            transition: 0.3s;
+        }
     </style>
+
 </head>
 
 <body>
@@ -359,9 +398,11 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-1">
                             <div class="logo">
-                                <a href="{{ url('/') }}" style="color: rgb(255, 106, 0);font-size:20px;font-weight:bold;">
-                                    Dipesh Mishra
+                                <a href="{{ route('index') }}"
+                                    style="color: rgb(255, 106, 0);font-size:20px;font-weight:bold;">
+                                    {{ $setting->logo ?? '' }}
                                     {{-- <img src="{{ asset('user/assets/img/logo/logo.png') }}" alt=""> --}}
+
                                 </a>
                             </div>
                         </div>
@@ -373,26 +414,25 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="{{ url('/') }}">Home</a></li>
-                                            <li><a href="{{ route('about.index') }}">About</a></li>
-                                            <li><a href="{{ route('services.index') }}">Services</a></li>
-                                            <li><a href="{{ route('page.blog') }}">Blog</a></li>
-                                            {{-- <li><a href="{{ route('portfolio.index') }}">Portfolio</a></li> --}}
-                                            <li>
-                                                <a href="#">Page</a>
+                                            <li><a href="{{ route('index') }}">Home</a></li>
+                                            <li><a href="{{ route('about') }}">About</a></li>
+                                            <li><a href="{{ route('service') }}">Services</a></li>
+                                            <li><a href="{{route('blogs')}}">Blog</a></li>
+                                            <li><a href="">Gallery</a>
                                                 <ul class="submenu">
-                                                    <li><a href="{{ route('page.blog') }}">Blog</a></li>
-                                                    {{-- <li><a href="{{ route('page.blogDetails') }}">Blog Details</a></li> --}}
-                                                    <li><a href="{{ route('page.element') }}">Gallery</a></li>
+                                                    <li><a href="{{ route('gallery') }}">Photo</a></li>
+                                                    <li><a href="{{ route('gallery.video') }}">Video</a></li>
                                                 </ul>
                                             </li>
-                                            {{-- <li><a href="{{ route('contact.index') }}">Contact</a></li> --}}
+
+                                            <li class="d-block d-md-none"><a href="{{ route('contact') }}">Contact
+                                                    Us</a></li>
                                         </ul>
                                     </nav>
                                 </div>
 
-                                <div class="header-right-btn f-right d-none d-xl-block ml-20">
-                                    <a href="{{ route('contact.index') }}" class="btn header-btn">Contact Us</a>
+                                <div class="header-right-btn f-right d-none d-md-block ml-20">
+                                    <a href="{{ route('contact') }}" class="btn header-btn">Contact Us</a>
                                 </div>
 
                             </div>
@@ -408,3 +448,19 @@
             </div>
         </div>
     </header>
+    <div class="social-icons">
+        <a href="{{ $setting->facebook ?? '' }}" target="_blank" class="facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="{{ $setting->instagram ?? '' }}" target="_blank" class="instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="{{ $setting->twitter ??'' }}" target="_blank" class="twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="{{ $setting->youtube ?? ''}}" target="_blank" class="youtube">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContactModel;
+use App\Models\SettingsModel;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -13,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('user.contact.index');
+        $setting = SettingsModel::first();
+        return view('user.contact.index',compact('setting'));
     }
 
     /**
@@ -27,17 +29,17 @@ class ContactController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+     public function store(Request $request)
     {
-        // 
+        //
         $request->validate([
-            'name'=>'required|string|max:255',
-            'email'=>'required|email',
-            'phone'=>'required|digits:10',
-            'message'=>'required|string|max:255'
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|digits:10',
+            'message' => 'nullable|string|max:255'
         ]);
         ContactModel::create($request->all());
-        return redirect()->back()->with('success','Message Send Successfull');
+        return redirect()->back()->with('success', 'Message Send Successfull');
     }
 
     /**
@@ -67,8 +69,11 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+     public function destroy($id)
     {
-        //
+        $contact = ContactModel::findOrFail($id);
+        $contact->delete();
+
+        return redirect()->back()->with('success', 'Message Deleted Successfully');
     }
 }

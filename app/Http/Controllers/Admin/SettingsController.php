@@ -10,7 +10,7 @@ class SettingsController extends Controller
 {
     public function index()
     {
-        
+
     }
 
     /**
@@ -18,22 +18,33 @@ class SettingsController extends Controller
      */
     public function create()
     {
-        return view('admin.settings.create');
+        $setting = SettingsModel::first();
+        return view('admin.settings.create', compact('setting'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+   public function store(Request $request)
     {
-        SettingsModel::create([
-            "logo"=> $request->logo,
-            "twitter"=> $request->twitter,
-            "facebook"=> $request->facebook,
-            "website"=> $request->website,
-            "instagram"=> $request->instagram
-        ]);
-        return redirect()->route('settings.create')->with('success','data inserted successfully');
+        $setting = SettingsModel::first();
+
+        if (!$setting) {
+            $setting = new SettingsModel();
+        }
+
+        $setting->logo = $request->logo;
+        $setting->email = $request->email;
+        $setting->contact = $request->contact;
+        $setting->address = $request->address;
+        $setting->twitter = $request->twitter;
+        $setting->facebook = $request->facebook;
+        $setting->website = $request->website;
+        $setting->instagram = $request->instagram;
+        $setting->youtube = $request->youtube;
+
+        $setting->save();
+        return redirect()->back()->with('success', 'Data Save successfully');
     }
 
     /**

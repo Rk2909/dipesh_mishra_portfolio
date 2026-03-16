@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\BlogModel;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function blog(){
-        return view('user.page.blog');
+        $blogs = BlogModel::latest()->paginate(9);
+        return view('user.page.blog',compact('blogs'));
     }
     public function blogDetails(){
         return view('user.page.blogDetails');

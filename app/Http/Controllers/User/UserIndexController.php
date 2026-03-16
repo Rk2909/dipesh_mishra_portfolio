@@ -1,7 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\User;
-
+use App\Models\AboutModel;
+use App\Models\BlogModel;
+use App\Models\GalleryModel;
+use App\Models\SettingsModel;
+use App\Models\SliderModel;
+use App\Models\VideoGalleryModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,7 +17,13 @@ class UserIndexController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $setting = SettingsModel::first();
+        $slider = SliderModel::first();
+        $about = AboutModel::first();
+        $blogs = BlogModel::latest()->take(3)->get();
+        $gallerys = GalleryModel::latest()->take(3)->get();
+        $videos = VideoGalleryModel::latest()->take(3)->get();
+        return view('user.index' ,compact('setting','slider','about','blogs','gallerys','videos'));
     }
 
     /**

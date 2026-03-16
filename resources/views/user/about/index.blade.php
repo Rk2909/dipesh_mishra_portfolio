@@ -30,8 +30,8 @@
                             <h2 data-aos="fade-up">About me</h2>
                             <nav aria-label="breadcrumb ">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{route('user.index')}}">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="#">About me</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="{{route('about')}}">About me</a></li>
                                 </ol>
                             </nav>
                         </div>
@@ -46,7 +46,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6">
-                    <img src="{{ asset('user/assets/img/dipesh_mishra_img.webp') }}" alt="Dipesh Mishra"
+                    <img src="{{ asset('about/' . optional($about)->profile) }}" alt="Dipesh Mishra"
                         class="img-fluid mb-30 images" data-aos="fade-right">
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
@@ -108,7 +108,7 @@
                 <h3 class="mb-30">iYouth Pvt. Ltd.</h3>
                 <div class="row">
                     <div class="col-md-3" data-aos="fade-up">
-                        <img src="{{ asset('user/assets/img/iYouth_pvt_ltd.webp') }}" alt="" class="img-fluid">
+                        <img src="{{ asset('public/user/assets/img/iYouth_pvt_ltd.webp') }}" alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9 mt-sm-20" data-aos="fade-up">
                         <p>
@@ -130,7 +130,7 @@
                 <h3 class="mb-30">Chhattisgarh Youth Federation</h3>
                 <div class="row">
                     <div class="col-md-3" data-aos="fade-up">
-                        <img src="{{ asset('user/assets/img/cg_youth_federation.webp') }}" alt="" class="img-fluid">
+                        <img src="{{ asset('public/user/assets/img/cg_youth_federation.webp') }}" alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9 mt-sm-20" data-aos="fade-up">
                         <p>
@@ -151,7 +151,7 @@
                 <h3 class="mb-30">Chhattisgarh Adventure Sports Association</h3>
                 <div class="row">
                     <div class="col-md-3" data-aos="fade-up">
-                        <img src="{{ asset('user/assets/img/cg_adventure_sports.webp') }}" alt="" class="img-fluid">
+                        <img src="{{ asset('public/user/assets/img/cg_adventure_sports.webp') }}" alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9 mt-sm-20" data-aos="fade-up">
                         <p>
