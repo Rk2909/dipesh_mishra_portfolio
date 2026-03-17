@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -27,25 +26,46 @@ class AuthController extends Controller
             "email" => $request->email,
             "password" => Hash::make($request->password)
         ]);
-        return redirect()->route('auth.login');
+        return redirect()->route('admin.login');
     }
 
+    public function loginCheck1(Request $request)
+    {
 
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->route('admin.index')
+                ->with('success', 'Login Successful');
+        }
+
+        return back()->with('error', 'Invalid credentials or account inactive');
+    }
     public function loginCheck(Request $request)
     {
-        // ✅ Step 1: Validation
+        
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
             'g-recaptcha-response' => 'required'
         ]);
 
-        // ✅ Step 2: reCAPTCHA verify
+        
         $response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
             'secret' => config('services.recaptcha.secret_key'),
-            'response' => $request->input('g-recaptcha-response'),
-            // 'remoteip' => $request->ip(),
-            // optional but good
+            'response' => $request->input('g-recaptcha-response'),            
         ]);
 
         $responseData = $response->json();
@@ -53,8 +73,7 @@ class AuthController extends Controller
         if (!($responseData['success'] ?? false)) {
             return back()->withErrors(['captcha' => 'Captcha verification failed'])->withInput();
         }
-
-        // ✅ Step 3: Login attempt
+        
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
 
