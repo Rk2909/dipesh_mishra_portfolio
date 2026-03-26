@@ -126,11 +126,12 @@
     document.addEventListener("DOMContentLoaded", function() {
 
         const texts = [
-            "Visionary Entrepreneur | Youth Institution Builder",
-            "Founder & CEO – iYouth Pvt. Ltd.",
-            "Founder & President – Chhattisgarh Youth Federation",
-            "Founder – Chhattisgarh Youth Federation",
-            "Founder & President – Chhattisgarh Adventure Sports Association"
+            "Visionary Entrepreneur",
+            "Youth Empowerment Architect",
+            "Youth Counselor",
+            "Business Advisor",
+            "Business Consultant",
+            "Business Coach"
         ];
 
 

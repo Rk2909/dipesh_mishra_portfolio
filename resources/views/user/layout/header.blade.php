@@ -383,6 +383,17 @@
             width: 55px;
             transition: 0.3s;
         }
+           @media(max-width:768px) {
+            .social-icons {
+                left: auto;
+                /* ❗ important */
+                right: 0;
+            }
+
+            .social-icons a {
+                border-radius: 5px 0px 0px 5px;
+            }
+        }
     </style>
 
 </head>

@@ -1,6 +1,7 @@
 @extends('user.layout.app')
 @section('title', 'Dipesh Mishra | Youth Institution Builder')
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .imagesheors {
             height: 400px;
@@ -42,8 +43,8 @@
             }
 
             /* .slider-height{
-                                                        display: none;
-                                                    } */
+                                                            display: none;
+                                                        } */
         }
     </style>
 
@@ -198,119 +199,125 @@
     <style>
         /* HERO BACKGROUND */
 
-.slider-area{
-    background: linear-gradient(135deg,#f8f9fa,#ffffff);
-    /* padding:80px 0; */
-}
+        .slider-area {
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            /* padding:80px 0; */
+        }
 
-/* TEXT */
+        /* TEXT */
 
-.hero__caption span{
-    font-size:14px;
-    letter-spacing:1px;
-    color:#ff5c00;
-    font-weight:600;
-}
+        .hero__caption span {
+            font-size: 14px;
+            letter-spacing: 1px;
+            color: #ff5c00;
+            font-weight: 600;
+        }
 
-.hero__caption h1{
-    font-size:60px;
-    font-weight:800;
-    margin-top:10px;
-    margin-bottom:10px;
-}
+        .hero__caption h1 {
+            font-size: 60px;
+            font-weight: 800;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
 
-/* LIST */
+        /* LIST */
 
-.hero-list{
-    padding-left:0;
-    margin-top:15px;
-}
+        .hero-list {
+            padding-left: 0;
+            margin-top: 15px;
+        }
 
-.hero-list li{
-    list-style:none;
-    font-size:16px;
-    margin-bottom:8px;
-    color:#444;
-}
+        .hero-list li {
+            list-style: none;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #444;
+        }
 
-/* IMAGE */
+        /* IMAGE */
 
-.imagesheors{
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.15);
-    max-height:420px;
-    object-fit:fill;
-}
-.textshadow{
-    text-shadow: 0px 0px 7px red;
-}
+        .imagesheors {
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            max-height: 420px;
+            object-fit: fill;
+        }
+
+        .textshadow {
+            text-shadow: 0px 0px 7px red;
+        }
 
 
 
-/* RESPONSIVE */
+        /* RESPONSIVE */
 
-@media(max-width:768px){
+        @media(max-width:768px) {
 
-.textshadow{
-    text-shadow: 0px 0px 3px red;
-}
-.hero__caption h1{
-    font-size:40px;
-}
+            .textshadow {
+                text-shadow: 0px 0px 3px red;
+            }
 
-.imagesheors{
-    margin-top:30px;
-}
+            .hero__caption h1 {
+                font-size: 40px;
+            }
 
-}
+            .imagesheors {
+                margin-top: 30px;
+            }
+
+        }
     </style>
 
     <main>
         <!-- HERO SECTION 0-->
         <div class="slider-area">
-    <div class="single-slider slider-height d-flex align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
+            <div class="single-slider slider-height d-flex align-items-center">
+                <div class="container">
+                    <div class="row align-items-center">
 
-                <div class="col-md-8">
-                    <div class="hero__caption">
+                        <div class="col-md-8">
+                            <div class="hero__caption">
 
-                        <span class="hero-top-text" style="text-shadow: 0px 2px 3px black;">
-                            Empowering Youth. Strengthening Society. Building a Self-Reliant India.
-                        </span>
+                                {{-- <span class="hero-top-text" style="text-shadow: 0px 2px 3px black;">
+                                    Empowering Youth. Strengthening Society. Building a Self-Reliant India.
+                                </span> --}}
 
-                        <h1 class="textshadow">Dipesh Mishra</h1>
+                                <h1 class="textshadow">Dipesh Mishra</h1>
 
-                        <h4 id="typewriter"></h4>
+                                <h4 id="typewriter"></h4>
 
-                        <ul class="hero-list">
-                            <li>Founder & CEO – iYouth Pvt. Ltd.</li>
-                            <li>Founder & President – Chhattisgarh Youth Federation</li>
-                            <li>Founder – Chhattisgarh Youth Federation</li>
-                            <li>Founder & President – Chhattisgarh Adventure Sports Association</li>
-                        </ul>
+                                <ul class="hero-list">
+                                    <li>Director – iYouth Pvt. Ltd.</li>
+                                    <li>Founder & President – Chhattisgarh Youth Federation</li>
+                                    <li>Founder – Chhattisgarh Youth Federation</li>
+                                    <li>Founder & President – Chhattisgarh Adventure Sports Association</li>
+                                </ul>
+                                <ul class="hero-top-text" style="">
+                                    <li><i class="bi bi-check-circle-fill text-success"></i> Empowering Youth.</li>
+                                    <li><i class="bi bi-check-circle-fill text-success"></i> Strengthening Society.</li>
+                                    <li><i class="bi bi-check-circle-fill text-success"></i> Building a Self-Reliant India.</li>
+                                </ul>
 
-                        <div class="hero__btn mt-4">
-                            <a href="{{ route('contact') }}" class="btn hero-btn">Partner With Us</a>
+                                    <div class="hero__btn mt-4">
+                                        <a href="{{ route('contact') }}" class="btn hero-btn">Partner With Us</a>
 
-                            <a href="{{ route('about') }}" class="btn border-btn ml-15">
-                                Explore Vision
-                            </a>
+                                        <a href="{{ route('about') }}" class="btn border-btn ml-15">
+                                            Explore Vision
+                                        </a>
+                                    </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 text-center">
+                            <img src="{{ asset('slider/' . $slider->profile) }}" alt="img"
+                                class="img-fluid imagesheors">
                         </div>
 
                     </div>
                 </div>
-
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('slider/' . $slider->profile) }}"
-                         alt="img"
-                         class="img-fluid imagesheors">
-                </div>
-
             </div>
         </div>
-    </div>
-</div>
         <!-- HERO SECTION 0-->
 
 
@@ -845,55 +852,55 @@
                 <!-- Twitter Section -->
                 <!-- <div class="col-md-4">
 
-                    <h5 class="text-danger mb-3">
-                        <i class="fab fa-twitter text-info"></i> ट्विटर @dipeshmishra
-                    </h5>
+                        <h5 class="text-danger mb-3">
+                            <i class="fab fa-twitter text-info"></i> ट्विटर @dipeshmishra
+                        </h5>
 
-                    <div class="card shadow-sm">
-                        <div class="card-body p-2">
+                        <div class="card shadow-sm">
+                            <div class="card-body p-2">
 
 
-                            <a class="twitter-timeline" target="_blank" data-height="500" href="https://twitter.com/dipeshmishra_in">
-                                Tweets by dipeshmishra
-                            </a>
+                                <a class="twitter-timeline" target="_blank" data-height="500" href="https://twitter.com/dipeshmishra_in">
+                                    Tweets by dipeshmishra
+                                </a>
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="text-center mt-2">
-                        <a target="_blank" href="https://twitter.com/dipeshmishra_in" class="btn btn-danger btn-sm">
-                            संपूर्ण देखें
-                        </a>
-                    </div>
+                        <div class="text-center mt-2">
+                            <a target="_blank" href="https://twitter.com/dipeshmishra_in" class="btn btn-danger btn-sm">
+                                संपूर्ण देखें
+                            </a>
+                        </div>
 
 
-                </div> -->
+                    </div> -->
 
                 <!-- YouTube Section -->
                 <!-- <div class="col-md-4">
 
-                    <h5 class="text-danger mb-3">
-                        <i class="fab fa-youtube text-danger"></i> यूट्यूब
-                    </h5>
+                        <h5 class="text-danger mb-3">
+                            <i class="fab fa-youtube text-danger"></i> यूट्यूब
+                        </h5>
 
-                    <div class="card shadow-sm">
-                        <div class="card-body">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
 
-                            <iframe width="100%" height="300"
-                                src="https://www.youtube.com/embed?listType=user_uploads&list=YogiAdityanathChannel"
-                                frameborder="0" allowfullscreen>
-                            </iframe>
+                                <iframe width="100%" height="300"
+                                    src="https://www.youtube.com/embed?listType=user_uploads&list=YogiAdityanathChannel"
+                                    frameborder="0" allowfullscreen>
+                                </iframe>
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="text-center mt-2">
-                        <a href="https://www.youtube.com/" class="btn btn-danger btn-sm" target="_blank">
-                            संपूर्ण देखें
-                        </a>
-                    </div>
+                        <div class="text-center mt-2">
+                            <a href="https://www.youtube.com/" class="btn btn-danger btn-sm" target="_blank">
+                                संपूर्ण देखें
+                            </a>
+                        </div>
 
-                </div> -->
+                    </div> -->
 
             </div>
         </div>

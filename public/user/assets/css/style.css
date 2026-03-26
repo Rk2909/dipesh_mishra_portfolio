@@ -2359,14 +2359,14 @@ hr {
 }
 
 .footer-padding {
-    padding-top: 150px;
-    padding-bottom: 136px
+    padding-top: 70px;
+    padding-bottom: 60px
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .footer-padding {
-        padding-top: 150px;
-        padding-bottom: 136px
+        padding-top: 70px;
+        padding-bottom: 60px
     }
 }
 
